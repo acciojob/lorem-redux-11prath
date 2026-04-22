@@ -1,9 +1,7 @@
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import { createStore, applyMiddleware } from "redux";
+import { thunk } from "redux-thunk";
+import reducer from "./reducer";
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
-);
+const store = createStore(reducer, applyMiddleware(thunk));
+
+export default store;

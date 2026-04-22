@@ -1,10 +1,10 @@
 import React from "react";
-import Lorem from "./Lorem";
+import Lorem from "./components/Lorem";
 
 function App() {
   return (
     <div>
-      <h1>Lorem Redux</h1>
+      <h1>Lorem Redux App</h1>
       <Lorem />
     </div>
   );

@@ -4,27 +4,23 @@ import { fetchData } from "../redux/actions";
 
 const Lorem = () => {
   const dispatch = useDispatch();
-
   const { loading, data, error } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
-      <p>
-        <strong>{data.title}</strong>
-      </p>
-      <p>{data.body}</p>
+      {data && (
+        <>
+          <h2>{data.title}</h2>
+          <p>{data.body}</p>
+        </>
+      )}
     </div>
   );
 };
